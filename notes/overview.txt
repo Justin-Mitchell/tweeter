@@ -1,0 +1,52 @@
+Project: Tweeter (twitter clone:part 1:application)
+
+  This projects is more designed for the basic concepts 
+  of twitter rather than an exact clone. In part: 1 we 
+  will build out the beginings of our application.  Throught
+  the other parts we will cover the more advanced association
+  and javascript.  Thru the weeks we will continue to build on
+  this application. Tweeter is going to be pushed live to heroku.
+  
+  GEMS
+  ===================================
+  postgresql                - for database( heroku uses postgres as it's database)
+  rails_12factor            - for serving assets in production( required for heroku )
+  devise                    - for authentication
+  twitter-bootstrap-rails   - for styling
+  better-errors             - for debugging
+  ffaker                    - for development data
+  kaminari                  - for paginating our views
+  
+  MODELS
+  ===================================
+  User:model
+    fields:
+      - name:string
+      - handle:string ( unique name our users will be referrenced by )
+      - age:string
+      - Devise:fields ( Devise will handle the rest of our model fields )
+    
+  Tweet:model
+    fields:
+      - content:string ( we will use string here instead of text to controll the length of a tweet )
+      - user_id:integer ( foriegn_key: for our user association )
+  
+  CONTROLLERS
+  =====================================
+  StaticPagesController:
+    actions:
+      - tweeter
+      - about
+      - tos ( "tos" stands for Terms Of Service )
+      - privacy
+  
+  UsersController:
+    actions:
+      - index
+      - show
+      
+  TweetsController:
+    actions:
+      - create
+      - destroy
+  
