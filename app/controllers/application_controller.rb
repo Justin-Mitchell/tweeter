@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :age, :handle, :email, :password, :password_confirmation) }
   end
   
+  def after_sign_in_path_for(resource)
+    user_path(current_user)
+  end
+  
 end

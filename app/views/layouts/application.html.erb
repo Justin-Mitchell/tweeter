@@ -64,20 +64,19 @@
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="offset1 span6">
+        <div class="offset1 span4">
+          <div class="well sidebar-nav">
+            <%= form_for(@tweet) do |f| %>
+            <p><%= f.text_field(:content)%></p>
+            <p><%= f.submit('Send')%></p>
+            <% end %>
+          </div><!--/.well -->
+        </div><!--/span-->
+        
+        <div class="offset1 span6 well">
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
-        <div class="span4">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
       </div><!--/row-->
 
       <footer>

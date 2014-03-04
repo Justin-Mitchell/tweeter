@@ -1,4 +1,5 @@
                   Prefix Verb   URI Pattern                    Controller#Action
+              users_show GET    /users/show(.:format)          users#show
         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
             user_session POST   /users/sign_in(.:format)       devise/sessions#create
     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -15,6 +16,10 @@ cancel_user_registration GET    /users/cancel(.:format)        devise/registrati
                          PUT    /users(.:format)               devise/registrations#update
                          DELETE /users(.:format)               devise/registrations#destroy
                     root GET    /                              static_pages#tweeter
+                   users GET    /users(.:format)               users#index
+                    user GET    /users/:id(.:format)           users#show
+                  tweets POST   /tweets(.:format)              tweets#create
+                   tweet DELETE /tweets/:id(.:format)          tweets#destroy
                    about GET    /about(.:format)               static_pages#about
         terms_of_service GET    /terms-of-service(.:format)    static_pages#tos
           privacy_policy GET    /privacy-policy(.:format)      static_pages#privacy
